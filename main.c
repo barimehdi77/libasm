@@ -6,7 +6,7 @@
 /*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 19:04:29 by mbari             #+#    #+#             */
-/*   Updated: 2020/12/17 13:06:27 by mbari            ###   ########.fr       */
+/*   Updated: 2020/12/17 13:58:50 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,8 +47,8 @@ char	*xd_strcpy(char *dist, char *src)
 int		main()
 {
 	int		i;
-	char dist[20] = "asdfhjbabdsbasjnadsa";
-	char dist2[20] = "asdf";
+	char dist2[20] = "";
+	char dist[20] = "asdf";
 
 	//xd_strcpy(dist, "hellow world!");
 	//ft_strcpy(dist2,"hello");
