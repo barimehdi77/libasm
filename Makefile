@@ -6,13 +6,13 @@
 #    By: mbari <marvin@42.fr>                       +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2020/12/13 12:28:54 by mbari             #+#    #+#              #
-#    Updated: 2020/12/15 14:26:47 by mbari            ###   ########.fr        #
+#    Updated: 2020/12/17 09:41:16 by mbari            ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libasm.a
 
-SRC = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_read.s ft_write.s
+SRC = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_read.s ft_write.s ft_strdup.s
 OBJ = $(SRC:.s=.o)
 
 #BONUS_OBJ = $(SRC_BONUS:%.c=%.o)
@@ -37,7 +37,7 @@ $(NAME): $(OBJ)
 	nasm $(NFLAGS) $^
 
 clean: 
-	/bin/rm -f $(OBJ) $(BONUS_OBJ)
+	/bin/rm -f $(OBJ) $(BONUS_OBJ) a.out
 
 fclean: clean
 	/bin/rm -f $(NAME)

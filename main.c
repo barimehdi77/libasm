@@ -6,7 +6,7 @@
 /*   By: mbari <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 19:04:29 by mbari             #+#    #+#             */
-/*   Updated: 2020/12/15 14:34:54 by mbari            ###   ########.fr       */
+/*   Updated: 2020/12/17 13:06:27 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 #include <string.h>
 int		ft_strlen(char *str);
 char 	*ft_strcpy(char *dist, char *src);
-//char	*ft_strdup(char *s);
+char	*ft_strdup(char *s);
 int ft_strcmp(char *s1, char *s2);
 int ft_write(int fd, char *str, int size);
 int ft_read(int fd, void *buf, int size);
@@ -47,11 +47,11 @@ char	*xd_strcpy(char *dist, char *src)
 int		main()
 {
 	int		i;
-	char dist[20] = "xd";
-	char dist2[20] = "xd";
+	char dist[20] = "asdfhjbabdsbasjnadsa";
+	char dist2[20] = "asdf";
 
 	//xd_strcpy(dist, "hellow world!");
-	ft_strcpy(dist2,"hello");
+	//ft_strcpy(dist2,"hello");
 
 
 
@@ -61,7 +61,7 @@ int		main()
 //printf("xd\n");
 	//printf("|-%s-||-%s-|\n",dist2, dist);
 	
-	printf("|-%d-||-%d-|\n",ft_strcmp("mehdi", "qehdi"), strcmp("mehdi", "qehdi"));
+	printf("|-%d-||-%d-|\n",ft_strcmp("a", "asdf"), strcmp("a", "asdf"));
 	printf("|-%d-||-%d-|\n",ft_strcmp(dist, dist2), strcmp(dist, dist2));
 	//printf("|-%s-||-%s-|\n",ft_strdup("NULL"), strdup("NULL"));
 	//i = ft_write(-1, "|hello|", -5);
