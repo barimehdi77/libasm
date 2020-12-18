@@ -7,7 +7,7 @@ section .text
 _ft_strcmp:								; rdi = s1, rsi = s2
 			push rbp					; push rbp to the Stack
 			mov rax, 0					; clean rax
-			xor rdx, rdx
+			xor rdx, rdx				; clean rdx
 			mov rbp, -1					; set rbp to -1
 
 _loop:
@@ -16,8 +16,6 @@ _loop:
 			mov al, BYTE[rsi + rbp]		; move the current byte of rsi to al
 			cmp al, byte 0					; check the '\0' in rsi
 			je _exit					; if CF change then jump to _exit
-			;cmp dl, byte 0					; check the '\0' in rdi
-			;je _exit					; if CF change then jump to _exit
 			cmp al, dl					; check if al == dl
 			je _loop					; if al != dl then jump to _exit
 			
