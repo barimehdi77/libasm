@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 19:04:29 by mbari             #+#    #+#             */
-/*   Updated: 2020/12/19 17:40:02 by mbari            ###   ########.fr       */
+/*   Updated: 2020/12/19 17:42:50 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -252,7 +252,6 @@ int		main()
 	i = ft_read(fd, buf, 11);
 	j = read(fd, buf, 11);
 	printf("|%d||%d|\n",i, j);
-	//int		fd;
 
 	fd = open("my_main.c", O_RDONLY);
 	ret = read(fd, buff, 1337);
