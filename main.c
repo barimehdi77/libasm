@@ -6,7 +6,7 @@
 /*   By: mbari <mbari@student.42.fr>                +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/12/04 19:04:29 by mbari             #+#    #+#             */
-/*   Updated: 2020/12/18 20:54:19 by mbari            ###   ########.fr       */
+/*   Updated: 2020/12/19 17:40:02 by mbari            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -130,46 +130,129 @@ int		main()
 	printf("9-|ft_write = %d||write = %d|\n",ft_write(1, "This is longer than 23 I think", 23), write(1, "This is longer than 23 I think", 23));
 	printf("10-|ft_write = %d||write = %d|\n",ft_write(1, "Go back in time", 2), write(1, "Go back in time", 2));
 
+	/*vars for the read and write tests*/
+	int fd = open("main.c", O_RDONLY);
+	int ret;
+	int ret_err;
+	char buff[30] = "this is a test";
+	char readit[30];
 
+	
 	/********************************************FT_WRITE TEST WITH THE ERRNO********************************************/
 	printf("/********************************************FT_WRITE TEST WITH THE ERRNO********************************************/\n");
-	char buff[30];
-	int fd = open("my_main.c", O_RDONLY);
-	int ret = write(1, buff, -1337);
-	int ret_err = errno;
-	printf("ret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
-	close(fd);
-	fd = open("my_main.c", O_RDONLY);
-	ret = ft_write(1, buff, -1337);
+	ret = write(1, buff, 13);
 	ret_err = errno;
-	printf("ret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
-	close(fd);	
-	/*xd_strcpy(dist, "hellow world!");
-	ft_strcpy(dist2,"hello world");
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	ret = ft_write(1, buff, 13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	
+	
+	printf("\n----------New Test---------\n");
+	
+	ret = write(1, buff, -13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	ret = ft_write(1, buff, -13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	
+	printf("\n----------New Test---------\n");
+	
+	ret = write(77, buff, 13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	ret = ft_write(77, buff, 13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	
+	
+	printf("\n----------New Test---------\n");
+	
+	ret = write(-1, buff, 13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	ret = ft_write(-1, buff, 13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+
+
+
+	/********************************************FT_READ TEST********************************************/
+	printf("/********************************************FT_READ TEST********************************************/\n");
+	printf("1-|ft_read= %d||read = %d|\n",ft_read(fd, readit, 3), read(fd, readit, 3));
+	printf("2-|ft_read= %d||read = %d|\n",ft_read(fd, readit, 0), read(fd, readit, 0));
+	printf("3-|ft_read= %d||read = %d|\n",ft_read(fd, readit, 2), read(fd, readit, 2));
+	printf("4-|ft_read= %d||read = %d|\n",ft_read(fd, readit, 5), read(fd, readit, 5));
+	printf("5-|ft_read= %d||read = %d|\n",ft_read(fd, readit, 7), read(fd, readit, 7));
+	
+
+	/********************************************FT_READ TEST WITH THE ERRNO********************************************/
+	printf("/********************************************FT_READ TEST WITH THE ERRNO********************************************/\n");
+	ret = read(fd, buff, -13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	ret = ft_read(fd, buff, -13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	
+	
+	printf("\n----------New Test---------\n");
+	ret = read(77, buff, 13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	ret = ft_read(77, buff, -13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	
+	
+	printf("\n----------New Test---------\n");
+
+	ret = read(-77, buff, -13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	ret = ft_read(-77, buff, -13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	
+	
+	printf("\n----------New Test---------\n");
+	
+	ret = read(fd, buff, 13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
+	ret = ft_read(fd, buff, 13);
+	ret_err = errno;
+	printf("\nret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));	
+	close(fd);
+
+
+
+	/********************************************SOME MORE RANDOM TESTS********************************************/
+	printf("/********************************************SOME MORE RANDOM TESTS********************************************/\n");
+
+	
+	xd_strcpy(dist, "hellow world!");
+	ft_strcpy(dist2,"hello world!");
 
 
 
 	i = ft_strlen("hello world!");
 	int j = strlen("hello world!");
-	printf("|%d||%d|",i,j);
-	printf("xd\n");
+	printf("|%d||%d|\n",i,j);
 	printf("|-%s-||-%s-|\n",dist2, dist);
 	
-	printf("|-%d-||-%d-|\n",ft_strcmp("a", "asdf"), strcmp("a", "asdf"));
 	printf("|-%d-||-%d-|\n",ft_strcmp(dist, dist2), strcmp(dist, dist2));
 	printf("|-%s-||-%s-|\n",ft_strdup("NULL"), strdup("NULL"));
 	i = ft_write(1, "|hello|", 5);
 	j = ft_write(1, "|hello|", 5);
 	printf("\n|%d||%d|", i, j);
 	char *buf;
-	int fd = open("ft_write.s", O_RDONLY);
+	fd = open("ft_write.s", O_RDONLY);
 	i = ft_read(fd, buf, 11);
 	j = read(fd, buf, 11);
 	printf("|%d||%d|\n",i, j);
 	//int		fd;
-	char	buff[1338];
-	int		ret;
-	int		ret_err;
 
 	fd = open("my_main.c", O_RDONLY);
 	ret = read(fd, buff, 1337);
@@ -180,7 +263,7 @@ int		main()
 	ret = ft_read(fd, buff, 1337);
 	ret_err = errno;
 	printf("ret = %d, errno = %d, %s\n", ret, ret_err, strerror(ret_err));
-	close(fd);	*/
+	close(fd);
 	return (0);
 }
 
