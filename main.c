@@ -16,14 +16,18 @@
 #include <unistd.h>
 #include <fcntl.h>
 #include <string.h>
+#include <fcntl.h>
 
 
 int		ft_strlen(char *str);
-char 	*ft_strcpy(char *dist, char *src);
-char	*ft_strdup(char *s);
-int ft_strcmp(char *s1, char *s2);
-int ft_write(int fd, char *str, int size);
-int ft_read(int fd, void *buf, int size);
+char 		*ft_strcpy(char *dist, char *src);
+char		*ft_strdup(char *s);
+int 		ft_strcmp(char *s1, char *s2);
+int 		ft_write(int fd, char *str, int size);
+int 		ft_read(int fd, void *buf, int size);
+
+
+/* Function I rewrote to Help me wrote them in assembly */
 int		xd_strlen(char *str)
 {
 	int		len;
@@ -46,8 +50,6 @@ char	*xd_strcpy(char *dist, char *src)
 	dist[i] = '\0';
 	return (dist);
 }
-
-#include <fcntl.h>
 
 int		main()
 {
