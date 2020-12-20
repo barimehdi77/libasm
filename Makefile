@@ -15,19 +15,9 @@ NAME = libasm.a
 SRC = ft_strlen.s ft_strcpy.s ft_strcmp.s ft_read.s ft_write.s ft_strdup.s
 OBJ = $(SRC:.s=.o)
 
-#BONUS_OBJ = $(SRC_BONUS:%.c=%.o)
-
-#NASM = nasm
-
 NFLAGS = -f macho64
 
-CFLAGS = -Wall -Werror -Wextra
-
 all: $(NAME)
-
-#bonus:  $(BONUS_OBJ)
-#	ar rc $(NAME) $(BONUS_OBJ)
-#	ranlib $(NAME)
 
 $(NAME): $(OBJ)
 	ar rc $(NAME) $(OBJ)
