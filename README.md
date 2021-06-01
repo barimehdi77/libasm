@@ -1,8 +1,8 @@
-# libasm
+# 🧰 libasm
 The aim of this project is to get familiar with assembly language.
 
 
-## Project Goal:
+# 🤔 Description:
 
 Write the following functions in x64 assembly (in the Intel syntax):
 
@@ -15,7 +15,7 @@ ssize_t		ft_read(int fd, void *buf, size_t nbyte);
 char		*ft_strdup(char const *s1);
 ```
 
-## Registers
+# 📟 Registers
 
 ```
 ; 64-bit [QWORD]
@@ -38,7 +38,7 @@ AL  CL  DL  BL  SPL BPL SIL DIL
 XMM0 ... XMM15
 ```
 
-## Common
+# 🔑 Common
 
 ```
 ; Save register
@@ -78,7 +78,7 @@ label:
 		jge	-		; >= VALUE
 ```
 
-## Functions
+# 🕹 Functions
 
 ```
 ; Function call
@@ -99,7 +99,7 @@ mov		rax, CODE	; Then RDI, RSI etc.. for params
 syscall
 ```
 
-## Ressources
+# 👨‍💻 Ressources
 
 * [syscalls MacOS](https://opensource.apple.com/source/xnu/xnu-1504.3.12/bsd/kern/syscalls.master)
 * [Linux syscalls](https://blog.rchapman.org/posts/Linux_System_Call_Table_for_x86_64/)
